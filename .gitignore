@@ -1,3 +1,6 @@
+# commit용 colab file
+command.ipynb
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
