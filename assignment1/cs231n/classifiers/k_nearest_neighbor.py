@@ -52,10 +52,8 @@ class KNearestNeighbor(object):
     Compute the distance between each test point in X and each training point
     in self.X_train using a nested loop over both the training data and the 
     test data.
-
     Inputs:
     - X: A numpy array of shape (num_test, D) containing test data.
-
     Returns:
     - dists: A numpy array of shape (num_test, num_train) where dists[i, j]
       is the Euclidean distance between the ith test point and the jth training
@@ -178,7 +176,6 @@ class KNearestNeighbor(object):
       #########################################################################
       #                           END OF YOUR CODE                            #
       #########################################################################
-
     return y_pred
 
 
