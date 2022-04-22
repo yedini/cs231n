@@ -97,7 +97,7 @@ class LinearClassifier(object):
     # TODO:                                                                   #
     # Implement this method. Store the predicted labels in y_pred.            #
     ###########################################################################
-    y_pred = np.argmax(X @ self.W, axis=1)
+    y_pred = np.argmax(np.matmul(X, self.W), axis=1)
     ###########################################################################
     #                           END OF YOUR CODE                              #
     ###########################################################################

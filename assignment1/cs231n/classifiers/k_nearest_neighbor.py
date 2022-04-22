@@ -126,10 +126,11 @@ class KNearestNeighbor(object):
     # dists_ijk = self.X_train[:, None, :] - X[:, :]  # (500, 3072, 5000) x 8 bytes
     # dists = np.linalg.norm(dists_ijk, axis=2)
 
-    X_train_sqr = np.sum(self.X_train ** 2, axis=1)
-    X_train_X = X @ self.X_train.T
-    X_sqr = np.sum(X ** 2, axis=1)
-    dists = np.sqrt(X_train_sqr[None, :] - 2 * X_train_X[:, :] + X_sqr[:, None])
+    X_train2 = np.sum(self.X_train ** 2, axis=1)
+    mm = np.matmul(X, self.X_train.T)
+    X_2 = np.sum(X ** 2, axis=1)
+    dists = np.sqrt(np.reshape(X_train2, [1, num_train])+
+    np.reshape(X_2, [num_test, 1])-2*mm)
     #########################################################################
     #                         END OF YOUR CODE                              #
     #########################################################################

@@ -74,7 +74,7 @@ def svm_loss_vectorized(W, X, y, reg):
   # Implement a vectorized version of the structured SVM loss, storing the    #
   # result in loss.                                                           #
   #############################################################################
-  scores = X @ W  #행렬곱연산
+  scores = np.matmul(X, W)
   correct_class_scores = scores[range(num_train), y]
   margins = scores - correct_class_scores[:, None] + 1
   margins[range(num_train), y] = 0
@@ -97,7 +97,7 @@ def svm_loss_vectorized(W, X, y, reg):
   binary = (margins > 0).astype(np.int)
   sums = np.sum(binary, axis=1)
   binary[range(num_train), y] = -sums.T
-  dW = X.T @ binary / num_train + reg * 2 * W
+  dW = np.matmul(X.T, binary) / num_train + reg * 2 * W
   #############################################################################
   #                             END OF YOUR CODE                              #
   #############################################################################
